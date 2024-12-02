@@ -1,0 +1,14 @@
+.sidebar {
+  background-image: url("./assets/images/bg-sidebar-desktop.svg");
+  background-position: center;
+  background-size: cover;
+}
+/* * {
+  font-family: "./assets/fonts/Ubuntu-Regular.ttf";
+} */
+
+@media screen and (max-width: 680px) {
+  .sidebar {
+    background-image: url("./assets/images/bg-sidebar-mobile.svg");
+  }
+}
