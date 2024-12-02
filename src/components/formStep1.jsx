@@ -13,6 +13,7 @@ export default function FormStep1({
   errorName,
   errorEmail,
   errorNumber,
+  invalidEmailError,
 }) {
   return (
     <form
@@ -53,12 +54,10 @@ export default function FormStep1({
             <label htmlFor="name" className="font-semibold">
               Email address
             </label>
-            <p
-              className={`${
-                errorEmail ? "flex" : "hidden"
-              } text-red-500 font-semibold`}
-            >
-              this field is required
+            <p className={`flex text-red-500 font-semibold`}>
+              {invalidEmailError
+                ? "invalid email address"
+                : errorEmail && "this field is required"}
             </p>
           </span>
 
@@ -87,8 +86,8 @@ export default function FormStep1({
           <input
             value={number}
             onChange={(e) => setNumber(e.target.value)}
-            type="text"
-            id="name"
+            type="number"
+            id="number"
             placeholder="e.g +1 234 567 890"
             className="border outline-1 outline-gray-400 border-gray-300 rounded-md px-3 py-3"
           />

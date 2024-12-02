@@ -10,6 +10,7 @@ export default function App() {
   const [count, setCount] = useState(1);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [invalidEmailError, setInvalidEmailError] = useState(false);
   const [number, setNumber] = useState("");
   const [errorName, setErrorName] = useState(false);
   const [errorEmail, setErrorEmail] = useState(false);
@@ -39,8 +40,13 @@ export default function App() {
     }
   }
   function handleSubmit1(e) {
+    if (email.includes("@")) {
+      setCount((c) => c + 1);
+    } else {
+      setInvalidEmailError(true);
+      console.log(666);
+    }
     e.preventDefault();
-    setCount((c) => c + 1);
     ErrorMessage();
   }
   function handleSubmit2() {
@@ -89,6 +95,7 @@ export default function App() {
             errorName={errorName}
             errorEmail={errorEmail}
             errorNumber={errorNumber}
+            invalidEmailError={invalidEmailError}
           />
         ) : count === 2 ? (
           <FormStep2
