@@ -120,7 +120,8 @@ function PlanDesign({ plan, handleSelectPLan, selectedPlan, value }) {
       <div className="flex flex-col gap-1">
         <p className="font-bold md:text-sm">{plan.name}</p>
         <p className="text-sm md:text-xs text-gray-600">
-          ${value === "monthly" ? Number(plan.plan) : Number(plan.planYyr)}/mo
+          ${value === "monthly" ? Number(plan.plan) : Number(plan.planYyr)}{" "}
+          {value === "monthly" ? "/mo" : "/yr"}
         </p>
       </div>
     </li>
